@@ -1,0 +1,57 @@
+/*WAP to create two class one class do the process of fibonacci series 
+and in second class find out the graeter between two no .
+From second class display both the operation.*/
+
+
+
+import java.util.*;
+public class base 
+{
+	int num,fn=0,sn=1,tn;
+	Scanner in=new Scanner(System.in);
+	
+	public void fibbo()
+	{
+
+		System.out.println("Enter number to find fibbonacci series");
+		num=in.nextInt();
+		System.out.println(" "+fn+" "+sn);
+		for(int i=0;i<num;i++)
+		{
+			tn=fn+sn;
+			System.out.print(" "+tn);
+			fn=sn;
+			sn=tn;
+		}
+	}
+}
+
+public class Derived extends base
+{
+
+	public static void main(String[] args) 
+	{
+	
+	Derived d1=new Derived();
+	
+	Scanner in=new Scanner(System.in);
+    d1.find_greater();
+    d1.fibbo();
+	}
+	void find_greater()
+	{
+	int n1,n2;
+	System.out.println("Enter two numbers:");
+	n1=in.nextInt();
+	n2=in.nextInt();
+	if(n1>n2)
+	{
+		System.out.println(n1+" is greater no:");
+	}
+	else
+	{
+		System.out.println(n2+" is greater no:");	
+	}
+	}
+
+}
