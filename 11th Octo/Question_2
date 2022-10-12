@@ -1,0 +1,77 @@
+/*WAP to crate three class, one class implemet the prime no prcess , 
+second class implement the swapping of two no, 
+third class imepelment the find out the average of student marks.*/
+package Question_2;
+import java.util.*;
+public class prime_no 
+{
+	void check_prime()
+	{
+		int n,i,temp=0;
+		System.out.println("Enter no to check it is prime or not");
+		Scanner in=new Scanner(System.in);
+		n=in.nextInt();
+		 for (i=1;i<=n;i++)
+		    {
+		     if(n%i==0)
+		     {
+		    	temp++; 
+		     }
+		    }
+
+		    if (temp==2)
+		    {
+		      System.out.println(n+ " is a prime number.");
+		    }
+		    else
+		    {
+		      System.out.println(n + " is not a prime number.");
+		    }
+	}
+}
+
+public class Swapping extends prime_no
+{
+void swap()
+{
+
+int n1,n2,temp;
+System.out.println("Enter two no");
+Scanner in= new Scanner(System.in);
+n1=in.nextInt();
+n2=in.nextInt();
+System.out.println("Value of numbers before Swapping\n Number 1 = "+n1+" Number 2= "+n2 );
+temp=n1;
+n1=n2;
+n2=temp;
+System.out.println("Value of numbers After Swapping\n Number 1 = "+n1+" Number 2= "+n2 );
+}
+}
+
+public class Average extends Swapping
+{
+
+	public static void main(String[] args)
+	{
+		Average a1=new Average();
+		a1.check_prime();
+	    a1.swap();
+        a1.find_avg();
+		
+	}
+	void find_avg()
+	{
+		int avg,sub1,sub2,sub3,sub4,sub5;
+		Scanner in=new Scanner(System.in);
+		System.out.println("Enter five subject marks");
+        sub1=in.nextInt();
+        sub2=in.nextInt();
+        sub3=in.nextInt();
+        sub4=in.nextInt();
+        sub5=in.nextInt();
+        avg=(sub1+sub2+sub3+sub4+sub5)/5;
+        System.out.println("Average of student marks = "+avg);
+	}
+
+}
+
