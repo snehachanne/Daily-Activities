@@ -1,0 +1,95 @@
+WAP to accept no from the user and perform the different types of Operator.
+
+package inheritance;
+import java.util.*;
+public class accept_value
+{
+	int a,b,c;
+	Scanner in=new Scanner(System.in);
+	void accept()
+	{
+		System.out.println("Enter two numbers:");
+		a=in.nextInt();
+		b=in.nextInt();
+		c=in.nextInt();
+	}
+}
+
+public class arithmetic_op extends accept_value
+{
+
+		void display()
+		{
+	    accept();
+	    System.out.println("Addition of "+a+" & "+b+" = "+(a+b));
+	    System.out.println("Substraction of "+a+" & "+b+" = "+(a-b));
+	    System.out.println("Multiplication of "+a+" & "+b+" = "+(a*b));
+	    System.out.println("Division of "+a+" & "+b+" = "+(a/b));
+	    System.out.println("Modulus of "+a+" & "+b+" = "+(a%b));
+	
+		}
+}
+
+public class Betwise_op extends accept_value
+{
+
+	void display()
+	{
+		accept();
+		System.out.println("Use of Betwise And = "+a+" & "+b+" = "+(a&b));
+		System.out.println("Use of Betwise Or "+a+" | "+b+" = "+(a|b));
+	}
+	
+}
+
+public class Condition_op extends accept_value
+{
+	void display()
+	{
+		accept();
+		int x;
+		x=a>b?1:0;
+		if(x==1)
+			System.out.println("a is greater no");
+		else
+			System.out.println("b is greater no");	
+	}
+}
+
+
+public class Logical_op extends accept_value
+{
+
+	
+	void display()
+	{
+		accept();
+		if(a>b && a>c)
+		{
+			System.out.println(a+" is greater no");
+		}
+		else if(b>a && b>c)
+		{
+			System.out.println(b+" is greater no");
+		}
+		else
+		{
+			System.out.println(c+" is greater no");
+		}
+	}
+}
+
+public class main_class 
+{
+    public static void main(String[] args)
+	{
+    	arithmetic_op a1=new arithmetic_op();
+    	a1.display();
+    	Betwise_op b1=new Betwise_op();
+    	b1.display();
+    	Condition_op c1=new Condition_op();
+    	c1.display();
+    	Logical_op l1=new Logical_op();
+		l1.display();
+	}
+}
