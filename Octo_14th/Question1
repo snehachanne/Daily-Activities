@@ -1,0 +1,101 @@
+
+/*WAP to accept bank name
+user name
+user password
+process:credi/debit
+precss willbe depend upon the user
+after that display the details with finbal balance amount*/
+
+package Encapsulation;
+import java.util.*;
+public class Bank_process
+{
+	private int pass=12345;
+	private int ac_bal=500;
+	public int getPass() 
+	{
+		return pass;
+	}
+	public void setPass(int pass)
+	{
+		this.pass = pass;
+	}
+	public int getAc_bal() 
+	{
+		return ac_bal;
+	}
+	public void setAc_bal(int ac_bal)
+	{
+		this.ac_bal += ac_bal;
+	}
+}
+
+public class User_process extends Bank_process
+{
+
+	public static void main(String[] args) 
+	{
+		User_process ob=new User_process();
+		ob.process();
+	}
+	public void process()
+	{
+		Scanner sc=new Scanner(System.in);
+		String u_id;
+		char choice;
+		int u_pass,u_bal;
+		int credit,debit;
+		int ch;
+		Bank_process obj=new Bank_process();
+		System.out.println("Enter Your User ID");
+		u_id=sc.next();
+		System.out.println("Enter your password");
+		u_pass=sc.nextInt();
+		if(u_pass==+obj.getPass()) //validate passward
+		{
+			do
+			{
+				System.out.println("Enter Your choice:\n1.Credit \n2.Debit");
+				ch=sc.nextInt();
+				switch(ch)
+				{
+				case 1:System.out.println("Enter amount to credit:");
+				credit=sc.nextInt();
+				obj.setAc_bal(credit); //To Credit the amount call set ballance method
+				System.out.println("The Current Balance is = "+obj.getAc_bal());
+				break;
+				case 2:	if(obj.getAc_bal()<=500)
+		        		{
+						System.out.println("You cant debit if your amount is 500");
+						System.out.println("The Current Balance is = "+obj.getAc_bal());  
+		        		}
+						else 
+						{
+						System.out.println("Enter amount to debit:");
+						debit=sc.nextInt();
+						if(obj.getAc_bal()<=debit)
+						{
+						System.out.println("You have Unsufficient Balance..");
+						}
+						obj.setAc_bal(-(debit));   //To debit the amount call set ballance method
+						System.out.println("The Current Balance is = "+obj.getAc_bal());
+						}
+						break;
+			            default:System.out.println("Please enter valid choice...");
+			            break;
+		                }
+		        System.out.println("Do you want proceed again y/n");
+		        choice=sc.next().charAt(0);
+			}while(choice=='y'||choice=='Y');
+		
+		
+			System.out.println("The User Id is ="+u_id);
+			System.out.println("The user _pass="+obj.getPass());
+			System.out.println("The acccount balance is ="+obj.getAc_bal());
+		}
+		else
+		{
+			System.out.println("The passward is incorrect..Please enter correct Passward");
+		}
+	}
+}
