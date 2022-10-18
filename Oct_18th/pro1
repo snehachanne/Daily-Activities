@@ -1,0 +1,37 @@
+package access_spec;
+
+public class class_A 
+{
+private int a=20;
+private void disp()
+{
+System.out.println("A="+a);	
+}
+
+public static void main(String args[])
+{
+	class_A a1=new class_A();
+	a1.disp(); //private members n function are only accessible with in the class
+}
+}
+public class class_B
+{
+	int a=20;    
+	public void disp()
+	{
+	System.out.println("A="+a);	
+	}
+}
+
+public class Main_class
+{
+
+	public static void main(String[] args)
+	{
+		class_A a1=new class_A();
+		a1.disp();// Private method of class_A can not be access by other class 
+		class_B b1=new class_B();
+		b1.disp(); // public members n member functions we can access from outside class
+	}
+
+}
