@@ -1,0 +1,130 @@
+package garbage_boxing;
+/*1.try catch
+2:try catch finally
+3:nested try catch
+4:multiple catch block
+1. arithmetic operation
+2. accept the size and than accept no arr[size+1]=45;
+3: arithmetic, array, accept name from user than display the name,
+ assign null value to name. display the hascode*/
+import java.util.*;
+
+public class Exception_Handling 
+{
+	Scanner in=new Scanner(System.in);
+	public static void main(String[] args) 
+	{
+		int ch;
+		Scanner in=new Scanner(System.in);
+		Exception_Handling ex=new Exception_Handling();
+		System.out.println("Enter Your choice:\n1.try catch\n2.try catch finally\n3.nested try catch");
+		ch=in.nextInt();
+		switch(ch)
+		{
+		case 1:ex.funct1();
+		break;
+		case 2:ex.funct2();
+		break;
+		case 3:ex.funct3();
+		break;
+		default:
+			System.out.println("Please enter valid choice....");
+		}
+
+	}
+	public void funct1()
+	{
+		int n1,n2;
+		System.out.println("Enter two nos:");
+		n1=in.nextInt();
+		n2=in.nextInt();
+		try
+		{
+			System.out.println("Addition = "+(n1+n2));
+			System.out.println("Substraction = "+(n1-n2));
+			System.out.println("Multiplication = "+(n1*n2));
+			System.out.println("Division = "+(n1/n2));
+			System.out.println("Modulus = "+(n1%n2));
+		}
+		catch(Exception e)
+		{
+			System.out.println("Enter value greater than 0");
+		}
+		
+	}
+	public void funct2()
+	{
+		int size,i;
+		System.out.println("Enter size of array:");
+		size=in.nextInt();
+		int a[]=new int[size];
+		try
+		{
+			System.out.println("Enter array elements");
+			for(i=0;i<=size;i++)
+			{
+				a[i]=in.nextInt();
+			}
+			
+			
+		}
+		catch(ArrayIndexOutOfBoundsException e)
+		{
+			System.out.println("The array size is greater than its declared size");
+		}
+		finally
+		{
+			System.out.println("The array elements are");
+			for(i=0;i<=size;i++)
+			{
+				System.out.println("a["+i+"]= "+a[i]);
+			}
+		}
+	}
+	public void funct3()
+	{
+	
+		try 
+		{
+			int num1, num2;
+
+			System.out.println("Entre two number:");
+			num1 = in.nextInt();
+			num2 = in.nextInt();
+			System.out.println("addition of two numbers =" + (num1 + num2));
+			System.out.println("Substraction of two numbers =" + (num1 - num2));
+			System.out.println("multiplication of two numbers =" + (num1*num2));
+			System.out.println("division of two  numbers =" + (num1 / num2));
+			int size, i;
+			System.out.println("Enter size for array to store elements : ");
+			size = in.nextInt();
+			int arr[] = new int[size];
+			arr[size + 1] = 45;
+			for (i = 0; i >= 0; i++)
+				System.out.println("Array=" + arr[i]);
+			String name;
+			name = null;
+			System.out.println("Enter your name:");
+			name = in.next();
+			System.out.println("The name is=" + name.hashCode());
+
+		} 
+		catch (ArrayIndexOutOfBoundsException e) 
+		{
+			System.out.println("The Array size is greater than it's declared.\n");
+		}
+		catch (NullPointerException n) 
+		{
+			System.out.println("Nme can not be NULL");
+		}
+		catch (Exception e) 
+		{
+			System.out.println("2nd number cann't be zero");
+		} 
+		finally 
+		{
+			System.out.println("This is an example of Expection Handling.");
+		}
+	}
+
+}
