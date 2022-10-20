@@ -1,0 +1,41 @@
+package garbage_boxing;
+import java.util.*;
+public class Boxing_Unboxing 
+{
+	static Scanner sc=new Scanner(System.in);
+	public static void Unbox_Demo()
+	{
+		System.out.println("Ente no to check no is divisible by 3 or not");
+		Integer obj=sc.nextInt();
+		int num=obj;
+		if(num%3==0)
+		{
+		System.out.println(num+" is divisible by 3");
+		}
+		else
+		{
+		System.out.println(num+" is not divisible by 3");
+		}
+	}	
+	public static void box_Demo()
+	{
+		System.out.println("Ente no to check no is positive or not");
+		int num=sc.nextInt();
+		Integer it1=new Integer(num);
+		if(num>0)
+		{
+		System.out.println(num+" is positive no");
+		}
+		else
+		{
+		System.out.println(num+" is negative no");
+		}
+	}	
+	public static void main(String[] args) 
+	{
+		Boxing_Unboxing b1=new Boxing_Unboxing();
+		b1.Unbox_Demo();
+		b1.box_Demo();
+	}
+
+}
