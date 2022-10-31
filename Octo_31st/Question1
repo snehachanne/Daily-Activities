@@ -1,0 +1,25 @@
+package Multithreading;
+
+public class fibbo extends Thread
+{
+	public static void main(String[] args)
+	{
+	fibbo f= new fibbo();
+	f.start();
+	fibbo f1=new fibbo();
+	f1.start();
+	}
+	public void run()
+	{
+		int i,fn=0,sn=1,tn;
+		System.out.println(fn+" "+sn);
+		for(i=1;i<=10;i++)
+		{
+			tn=fn+sn;
+			System.out.print(" "+tn);
+			fn=sn;
+			sn=tn;
+		}
+	}
+	
+}
