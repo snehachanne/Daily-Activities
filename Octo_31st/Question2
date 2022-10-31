@@ -1,0 +1,70 @@
+//Interface: Display Armstrong no from1 to 1000 , Prime NO from 1 to 100
+package Multithreading;
+
+public class armstrong implements Runnable
+{
+	public static void main(String[] args) 
+	{
+		armstrong a1=new armstrong();
+		Prime_no p1=new Prime_no();
+		Thread t2=new Thread(p1);
+		t2.start();
+		Thread t1=new Thread(a1);
+		t1.start();
+		/*Thread t2=new Thread(p1);
+		t1.start();*/
+	}
+
+	@Override
+	public void run() 
+	{
+	int i,sum=0,r,temp;
+	for(i=1;i<=1000;i++)
+	{
+		temp=i;    // temporary stored the value of i into temp for further process
+		while(temp!=0)
+		{
+			r=temp%10;  // find the single digit from the no using reminder operator
+			sum=sum+(r*r*r);  //to calculate cube of each digit
+			temp=temp/10;     
+		}
+		if(i==sum)
+		{
+			System.out.println(" "+i);
+		}
+		sum=0;     // again initialize sum to zero becauze it contains addition of 1 no
+	}
+	}
+}
+
+public class Prime_no implements Runnable
+{
+
+	@Override
+	public void run() 
+	{
+		// TODO Auto-generated method stub
+		int i = 0;
+		int num = 0;
+		String primeNumbers = "";
+
+		for (i = 1; i <= 100; i++)
+		{
+			int counter = 0;
+			for (num = i; num >= 1; num--)
+			{
+				if (i % num == 0) 
+				{
+					counter = counter + 1;
+				}
+			}
+			if (counter == 2)
+			{
+				primeNumbers = primeNumbers + i + " ";
+			}
+		}
+		System.out.println("Prime numbers from 1 to 100 are :");
+		System.out.println(primeNumbers);
+	}
+
+}
